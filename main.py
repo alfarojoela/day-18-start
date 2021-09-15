@@ -91,26 +91,55 @@ t.colormode(255)  #needed to do this so that random tuple can be generated to ch
 ###########################################################################################
 #colors = ["CornflowerBlue", "DarkOrchid", "IndianRed", "DeepSkyBlue", "LightSeaGreen", "Wheat", "SlateGray", "SeaGreen"
 #          ,"BlueViolet", "LavenderBlush3", "LemonChiffon", "SpringGreen", "VioletRed", "WhiteSmoke"]
+# def random_color():
+#     r = random.randint(0, 255)
+#     g = random.randint(0, 255)
+#     b = random.randint(0, 255)
+#     return r, g, b
+#
+# angles = [90, 180, 270, 360]
+#
+# tim.width(10)
+# tim.speed("fastest")
+# x, y = tim.position()
+#
+# for _ in range(300):
+#     tim.setheading(random.choice(angles))
+#     tim.forward(random.randint(0, 30))
+#     tim.color(random_color())
+
+##################################################################
+#MY FLAWED CODE FOR SPIROGRAPH
+# x = 0
+# y = 0
+# for _ in range(100):
+#     tim.circle(100)
+#     tim.penup()
+#     tim.setpos((x,y))
+#     tim.pendown()
+#     x += 10
+#     y += 10
+######################################################################
+#BETTER SOLUTION FOR SPIROGRAPH
+
 def random_color():
     r = random.randint(0, 255)
     g = random.randint(0, 255)
     b = random.randint(0, 255)
-    return r, g, b
+    color = (r,g, b)
+    # return r, g, b can multiple colors be returned back?  should check later.  check with replit.
+    #return r, g, b sends back a tuple.
+    return color
 
-angles = [90, 180, 270, 360]
-
-tim.width(10)
 tim.speed("fastest")
-x, y = tim.position()
 
-for _ in range(300):
-    tim.setheading(random.choice(angles))
-    tim.forward(random.randint(0, 30))
-    tim.color(random_color())
+def draw_spirograph(size_of_gap):
+    for _ in range(int(360/size_of_gap)):
+        tim.color(random_color())
+        tim.circle(100)
+        tim.setheading(tim.heading() + size_of_gap)
 
-##################################################################
-
-
+draw_spirograph(5)
 
 
 
@@ -132,7 +161,9 @@ for _ in range(300):
 
 
 
-screen = Screen()
+
+
+screen = t.Screen()
 screen.exitonclick()
 
 
