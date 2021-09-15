@@ -2,6 +2,7 @@ from turtle import Turtle, Screen
 import turtle as t #this was needed for the random color.  not sure what it does
 import heroes
 import random
+import colorgram
 
 tim = t.Turtle()  #same as above.  not sure of purpose.
 tim.shape("turtle")
@@ -139,7 +140,7 @@ def draw_spirograph(size_of_gap):
         tim.circle(100)
         tim.setheading(tim.heading() + size_of_gap)
 
-draw_spirograph(5)
+draw_spirograph(2.5)
 
 
 
